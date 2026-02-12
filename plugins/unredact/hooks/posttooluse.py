@@ -131,51 +131,12 @@ FORMATTERS = {
 }
 
 
-def format_mcp_tool(tool_name, tool_input, _tool_response):
-    """Format MCP tools: mcp__server__tool -> server:tool(first_param)."""
-    parts = tool_name.split("__")
-    if len(parts) >= 3:
-        server = parts[1]
-        tool = "__".join(parts[2:])
-    else:
-        server = ""
-        tool = tool_name
-
-    first_val = ""
-    for v in tool_input.values():
-        if isinstance(v, str):
-            first_val = v
-            break
-
-    if first_val:
-        if len(first_val) > 40:
-            first_val = first_val[:40] + "\u2026"
-        return first_val
-    return f"{server}:{tool}" if server else tool
-
-
-def format_generic(tool_name, tool_input, _tool_response):
-    """Fallback: ToolName(first_string_param)."""
-    first_val = ""
-    for v in tool_input.values():
-        if isinstance(v, str):
-            first_val = v
-            break
-
-    if first_val:
-        if len(first_val) > 50:
-            first_val = first_val[:50] + "\u2026"
-        return first_val
-    return tool_name
-
 
 def format_tool(tool_name, tool_input, tool_response):
-    """Dispatch to the appropriate formatter."""
+    """Dispatch to the appropriate formatter. Returns None for unknown tools."""
     if tool_name in FORMATTERS:
         return FORMATTERS[tool_name](tool_input, tool_response)
-    if tool_name.startswith("mcp__"):
-        return format_mcp_tool(tool_name, tool_input, tool_response)
-    return format_generic(tool_name, tool_input, tool_response)
+    return None
 
 
 def main():
@@ -189,6 +150,8 @@ def main():
         tool_response = input_data.get("tool_response", {})
 
         summary = format_tool(tool_name, tool_input, tool_response)
+        if not summary:
+            sys.exit(0)
 
         output = json.dumps({"systemMessage": summary})
         print(output, file=sys.stdout)

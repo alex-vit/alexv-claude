@@ -31,8 +31,9 @@ Claude Code used to show what it was doing — which files it read, what it sear
 | WebFetch | `example.com` |
 | WebSearch | `"react hooks"` |
 | NotebookEdit | `analysis.ipynb` |
-| MCP tools | `#general` (first string param, or `server:tool`) |
-| Other | first string param, or tool name |
+
+
+Other tools (MCP, ToolSearch, etc.) are silently skipped to avoid noise.
 
 ## Configuration
 
