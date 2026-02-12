@@ -1,0 +1,53 @@
+# unredact
+
+A Claude Code plugin that restores the per-tool-call detail that was [removed in v2.1.20](https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/).
+
+Claude Code used to show what it was doing — which files it read, what it searched for, what commands it ran. Now it collapses everything into useless summaries like "Read 3 files". This plugin brings that visibility back, printing a one-line summary after each tool call:
+
+```
+⏺ Searched for 1 pattern, read 1 file (ctrl+o to expand)
+  ⎿  PostToolUse:Glob says: **/* — 46 files
+  ⎿  PostToolUse:Read says: README.md — 52 lines
+```
+
+## Install
+
+```
+/plugin marketplace add https://github.com/alex-vit/alexv-claude
+/plugin install unredact@alexv-claude
+```
+
+## Supported tools
+
+| Tool | Example output |
+|------|---------------|
+| Read | `package.json — 31 lines` |
+| Grep | `"TODO" — 5 files` |
+| Glob | `**/*.ts — 12 files` |
+| Edit | `index.ts` |
+| Write | `config.json — 8 lines` |
+| Bash | `git status` (uses description, falls back to command) |
+| Task | `explore auth flow` |
+| WebFetch | `example.com` |
+| WebSearch | `"react hooks"` |
+| NotebookEdit | `analysis.ipynb` |
+| MCP tools | `#general` (first string param, or `server:tool`) |
+| Other | first string param, or tool name |
+
+## Configuration
+
+### Disable globally
+
+```bash
+export UNREDACT_ENABLED=0
+```
+
+### Disable per-project
+
+Create `.claude/unredact.local.json`:
+
+```json
+{
+  "enabled": false
+}
+```

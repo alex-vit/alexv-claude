@@ -1,0 +1,11 @@
+{
+  "name": "alexv-claude",
+  "owner": { "name": "alex-vit" },
+  "plugins": [
+    {
+      "name": "unredact",
+      "source": "./plugins/unredact",
+      "description": "Restores per-tool-call visibility that Claude Code removed in v2.1.20"
+    }
+  ]
+}
