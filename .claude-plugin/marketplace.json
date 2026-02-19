@@ -11,6 +11,11 @@
       "name": "notes",
       "source": "./plugins/notes",
       "description": "Development notes — track decisions, TODOs, and progress per task"
+    },
+    {
+      "name": "always-allow",
+      "source": "./plugins/always-allow",
+      "description": "Promote session-approved permissions to global ~/.claude/settings.json"
     }
   ]
 }
