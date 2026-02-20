@@ -18,9 +18,9 @@
       "description": "Promote session-approved permissions to global ~/.claude/settings.json"
     },
     {
-      "name": "todos",
-      "source": "./plugins/todos",
-      "description": "Personal task tracker — TODOs, reminders, and deadlines across all work"
+      "name": "squire",
+      "source": "./plugins/squire",
+      "description": "Personal squire — tracks tasks, reminders, and deadlines across all your work"
     }
   ]
 }
