@@ -29,7 +29,8 @@ Besides explicit `/notes` invocation, update notes proactively when:
 Keep it lightweight. Use headers, bullets, checklists as needed — not every note needs all sections. Typical content includes:
 - What we're working on and why
 - Goals / acceptance criteria
-- Deliverables (checklist if useful)
+- Deliverables — not individual functions/changes, but major outputs like a new release, a report, etc. Usually skipped.
+- Alternatives considered — if multiple approaches were analyzed, list them. Use a comparison table when dimensions vary across options; use bullet points when a brief summary suffices.
 - **TODOs** — `- [ ]` checklist of action items and next steps
 - Decisions made and rationale
 - Open questions
