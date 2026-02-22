@@ -74,4 +74,4 @@ Honest, concise. No self-congratulation ("great job on this session!"). Focus on
 - **`/reflect`**: review recent work, propose rules, and append to `~/.claude/CLAUDE.md` after user confirmation.
 - **Proactive trigger**: when triggered proactively, propose the rules and ask before writing. Keep it lightweight — one or two rules is fine. Don't force reflection when there's nothing worth capturing.
 - **Correction trigger**: when the user corrects a repeated mistake, capture it immediately as a rule. Propose it and confirm, but don't delay — the correction is fresh and specific.
-- **No-op is fine**: if there's genuinely nothing new to capture, say so and move on. Don't manufacture lessons.
+- **No-op is fine**: if there's genuinely nothing new to capture, say so immediately and move on. Don't manufacture lessons. Don't pad with praise, summaries, or "great session" filler before the no-op — just state there's nothing new to capture.
