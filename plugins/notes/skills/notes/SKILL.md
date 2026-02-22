@@ -11,10 +11,12 @@ Manage development notes in the `notes/` directory. Each note file is named `YYY
 ## Triggers
 
 Besides explicit `/notes` invocation, update notes proactively when:
+- Starting work on a new feature or ideas-list item — create the notes file up front
 - The user says "note that", "make a note", "keep track of", "add a todo", or similar
 - A significant decision is made or an approach is chosen
 - Requirements are clarified or refined
 - A deliverable is completed or scope changes
+- A commit or series of commits completes a feature or task
 - A concrete next step or action item emerges from discussion
 
 ## File naming
